@@ -1,0 +1,36 @@
+<?php
+	session_start();
+	require_once "connect.php";
+	if(!isset($_SESSION['logged']) || ($_SESSION['logged'] = false) ) {
+		header('Location: home');
+		exit();
+	}
+	$id = $_GET['id'];
+	
+	if($connection->connect_errno != 0) {
+			echo "Error: ".$connection->connect_errno; 
+		} else {
+			$result = mysqli_query($connection,"SELECT * FROM posts WHERE topicid=$id");
+			
+			while($row = mysqli_fetch_array($result)) {
+				$userid = $row['userid'];
+				$post = $row['post'];
+				
+				echo '<div>';
+				echo '*****<br />';
+				echo 'Userid: '.$userid.'<br />';
+				echo 'Treść posta: '.$post.'<br />';
+				echo '*****<br />';
+				echo '</div>';
+			}
+			if($result->num_rows > 0) {
+				echo '<form action="del" method="post" >';
+				echo "<input type='submit' value='Usuń wszystkie moje posty' />";
+				echo '</form>';
+			} else {
+				echo 'Wyglada na to że nic tu niema :) ';
+			}
+			mysqli_close($connection);
+		}
+	
+?>

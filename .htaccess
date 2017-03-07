@@ -1,0 +1,18 @@
+### PROTECT FILES ###
+<FilesMatch "\.(htaccess|htpasswd|ini|fla|psd|log|sh)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+RewriteEngine on
+RewriteRule home index.php
+RewriteRule add addtopic.php
+RewriteRule del deletetopic.php
+RewriteRule forum forum.php
+RewriteRule login login.php
+RewriteRule logout logout.php
+RewriteRule reg register.php
+RewriteRule posts posts.php
+RewriteRule rev rev.php
+RewriteRule rank rank.php
+RewriteRule user user.php

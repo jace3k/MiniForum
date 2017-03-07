@@ -1,0 +1,18 @@
+Changelog:
+
+-logowanie
+-rejestracja
+-dodawanie postów
+-dodawanie tematów
+-cenzurowanie wulgaryzmów
+-banowanie
+-changelog
+-nawigacja
+-okienko informacyjne
+-opinie
+-ranking userów
+-daty
+-strona o użytkownikach
+
+******************************
+<i>Created by Jacek™</i>
